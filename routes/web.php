@@ -24,10 +24,22 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     $buscar = $request->buscar;
     $data = null;
-    $cultivoplagaproductos = CultivoPlagaProducto::paginate();
+    $cultivoplagaproductos = CultivoPlagaProducto::with(['cultivos'=>function($query) use ($buscar)
+    {
+        //consulta interna
+        return $query->orWhere('cultivos.name','LIKE','%'.$buscar.'%');
+    }])->with(['plagas'=>function($query) use ($buscar)
+    {
+        //consulta interna
+        return $query->orWhere('plagas.name','LIKE','%'.$buscar.'%');
+    }])->with(['productostecnicos'=>function($query) use ($buscar)
+    {
+        //consulta interna
+        return $query->orWhere('productotecnico.name','LIKE','%'.$buscar.'%')->orWhere('productotecnico.nametech','LIKE','%'.$buscar.'%');
+    }])->paginate(2);
 
 
-    return view('welcome',compact('cultivoplagaproductos','data'));
+    return view('welcome',compact('cultivoplagaproductos','data','buscar'));
 });
 
 Auth::routes();

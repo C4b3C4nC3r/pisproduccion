@@ -41,8 +41,8 @@
         
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search"  aria-label="Search">
+      <form action="/" class="d-flex">
+        <input class="form-control me-2" type="search" name="buscar"  aria-label="Search">
         <button class="btn btn-outline-secondary" type="submit">Buscar</button>
       </form>
         <!--AQUI IRIAN LOS BUSCADORES-->

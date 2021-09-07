@@ -28,6 +28,7 @@
     <body class="antialiased">
         @include('index')
         <div class="container">
+            <hr>
             @include('vista')
 
         </div>
