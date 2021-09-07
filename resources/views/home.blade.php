@@ -15,7 +15,8 @@
                     <div class="accordion-body">
                         <form action="{{route('cultivo.store')}}" method="post">
                             @csrf
-                            <input type="text" name="name" required>
+                            <input class="form-control form-input" type="text" name="name" required>
+                            <hr>
                             <button class="btn btn-primary" type="submit">Agregarlo</button>
                         </form>
                   </div>
@@ -32,7 +33,8 @@
                     <div class="accordion-body">
                         <form action="{{route('plaga.store')}}" method="post">
                             @csrf
-                            <input type="text" name="name" required>
+                            <input class="form-control form-input" type="text" name="name" required>
+                            <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
                   </div>
@@ -49,7 +51,8 @@
                     <div class="accordion-body">
                         <form action="{{route('fabricante.store')}}" method="post">
                             @csrf
-                            <input type="text" name="name" required>
+                            <input class="form-control form-input" type="text" name="name" required>
+                            <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
                     </div>
@@ -66,7 +69,8 @@
                     <div class="accordion-body">
                         <form action="{{route('categoria.store')}}" method="post">
                             @csrf
-                            <input type="text" name="name" required>
+                            <input class="form-control form-input" type="text" name="name" required>
+                            <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
                     </div>
@@ -84,7 +88,33 @@
                       <div class="accordion-body">
                         <form action="{{route('productotecnico.store')}}" method="post">
                             @csrf
-                            <input type="text" name="name" required>
+                                <select required class="form-control form-select"  name="categoria_id">
+                                    <option value="">Elejir la Categoria</option>
+                                    @foreach ($categorias as $categoria)
+                                        <option value="{{$categoria->id}}">{{$categoria->name}}</option>
+                                    @endforeach
+                                </select>
+                            <hr>
+                                <select required class="form-control form-select"  name="fabricante_id">
+                                    <option value="">Elejir el Fabricante</option>
+                                    @foreach ($fabricantes as $fabricante)
+                                        <option value="{{$fabricante->id}}">{{$fabricante->name}}</option>
+                                    @endforeach
+                                </select>
+                            <hr>
+                            <input class="form-control form-input" type="text" name="name" required>
+                            
+                            <hr>
+                            <input class="form-control form-input" type="text" name="nametech" required>
+                            <hr>
+                            <input class="form-control form-input" type="text" name="mode_action" required>
+                            <hr>
+                            <input class="form-control form-input" type="text" name="composicion" required>
+                            <hr>
+                            <input class="form-control form-input" type="text" name="tiempoaplicacion" required>
+                            <hr>
+                            <input class="form-control form-input" type="text" name="lmr_ppm" required>
+                            <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
                     </div>
@@ -101,7 +131,29 @@
                         <div class="accordion-body">
                         <form action="{{route('cultivoplagaproducto.store')}}" method="post">
                             @csrf
-                            <input type="text" name="name" required>
+                            <select required class="form-control form-select"  name="cultivo_id">
+                                <option value="">Elejir el Cultivo</option>
+                                @foreach ($cultivos as $cultivo)
+                                    <option value="{{$cultivo->id}}">{{$cultivo->name}}</option>
+                                @endforeach
+                            </select>
+                            <hr>
+                            <select required class="form-control form-select"  name="plaga_id">
+                                <option value="">Elejir la Plaga</option>
+                                @foreach ($plagas as $plaga)
+                                    <option value="{{$plaga->id}}">{{$plaga->name}}</option>
+                                @endforeach
+                            </select>
+                            <hr>
+                            <select required class="form-control form-select"  name="producto_id">
+                                <option value="">Elejir el Producto</option>
+                                @foreach ($productotecnicos as $producto)
+                                    <option value="{{$producto->id}}">{{$producto->name}}</option>
+                                @endforeach
+                            </select>
+                            <hr>
+                            <textarea class="form-control" name="descripcion" id="" cols="30" rows="10"></textarea>
+                            <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
                         </div>

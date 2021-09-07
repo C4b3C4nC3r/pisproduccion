@@ -10,7 +10,6 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $productotecnicos=ProductoTecnico::create($request->all());
-
         return redirect()->route('home');
     }
 }

@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
+use App\Models\Cultivo;
+use App\Models\Fabricante;
+use App\Models\Plaga;
+use App\Models\ProductoTecnico;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,8 +30,13 @@ class HomeController extends Controller
     {
 
         $datos= null;
+        //productotecnico , [categoria_id, fabricante_id,name,nametech,mode_action,composicion,lmr_ppm]
+        $productotecnicos = ProductoTecnico::get();
+        $plagas = Plaga::get();
+        $cultivos = Cultivo::get();
+        $categorias = Categoria::get();
+        $fabricantes = Fabricante::get();
 
-
-        return view('home',compact('datos'));
+        return view('home',compact('plagas','categorias','fabricantes','cultivos','datos','productotecnicos'));
     }
 }
