@@ -27,16 +27,18 @@ Route::get('/', function (Request $request) {
     $cultivoplagaproductos = CultivoPlagaProducto::with(['cultivos'=>function($query) use ($buscar)
     {
         //consulta interna
-        return $query->orWhere('cultivos.name','LIKE','%'.$buscar.'%');
+        return $query->where('cultivos.name','LIKE','%'.$buscar.'%');
     }])->with(['plagas'=>function($query) use ($buscar)
     {
         //consulta interna
-        return $query->orWhere('plagas.name','LIKE','%'.$buscar.'%');
+        return $query->where('plagas.name','LIKE','%'.$buscar.'%');
     }])->with(['productostecnicos'=>function($query) use ($buscar)
     {
         //consulta interna
-        return $query->orWhere('productotecnico.name','LIKE','%'.$buscar.'%')->orWhere('productotecnico.nametech','LIKE','%'.$buscar.'%');
+        return $query->where('productotecnico.name','LIKE','%'.$buscar.'%')->orWhere('productotecnico.nametech','LIKE','%'.$buscar.'%');
     }])->paginate(2);
+
+
 
 
     return view('welcome',compact('cultivoplagaproductos','data','buscar'));
