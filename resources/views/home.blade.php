@@ -3,21 +3,29 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+        <div class="form-control text-center">
+            <a href="{{route('cultivo.create')}}">Ingresar Nuevo Cultivo</a>
+        </div>
+        <div class="form-control text-center">
+            <a href="{{route('plaga.create')}}">Ingresar Nueva Plaga</a>
+        </div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
+        <!--SE USA UN SCRIPT PARA ESTO-->
+        <div id="cultivo">
+            <form action="{{route('cultivo.store')}}" method="post">
+                @csrf
+                <input type="text" name="name" required>
+                <button class="btn btn-primary" type="submit">Agregarlo</button>
+            </form>
+        </div>
+        <div id="plaga" >
+            <form action="{{route('plaga.store')}}" method="post">
+                @csrf
+                <input type="text" name="name" required>
+                <button class="btn btn-primary"  type="submit">Agregarlo</button>
+            </form>
         </div>
     </div>
+   
 </div>
 @endsection

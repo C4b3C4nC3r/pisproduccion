@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CultivoController;
+use App\Http\Controllers\PlagaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//CULTIVO
+
+Route::resource('cultivo', CultivoController::class);
+Route::resource('plaga', PlagaController::class);
