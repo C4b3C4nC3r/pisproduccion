@@ -145,7 +145,7 @@
                                 @endforeach
                             </select>
                             <hr>
-                            <select required class="form-control form-select"  name="producto_id">
+                            <select required class="form-control form-select"  name="productotecnico_id">
                                 <option value="">Elejir el Producto</option>
                                 @foreach ($productotecnicos as $producto)
                                     <option value="{{$producto->id}}">{{$producto->name}}</option>

@@ -7,9 +7,8 @@ use App\Http\Controllers\FabricanteController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CultivoPlagaProductoController;
-
-
-
+use App\Models\CultivoPlagaProducto;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +21,13 @@ use App\Http\Controllers\CultivoPlagaProductoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (Request $request) {
+    $buscar = $request->buscar;
+    $data = null;
+    $cultivoplagaproductos = CultivoPlagaProducto::paginate();
+
+
+    return view('welcome',compact('cultivoplagaproductos','data'));
 });
 
 Auth::routes();
