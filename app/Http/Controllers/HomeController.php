@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $datos= null;
+
+
+        return view('home',compact('datos'));
     }
 }

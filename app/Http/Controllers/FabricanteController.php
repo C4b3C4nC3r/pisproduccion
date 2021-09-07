@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductoTecnico;
+use App\Models\Fabricante;
 use Illuminate\Http\Request;
 
-class ProductoController extends Controller
+class FabricanteController extends Controller
 {
     public function store(Request $request)
     {
-        $productotecnicos=ProductoTecnico::create($request->all());
+        $fabricantes=Fabricante::create($request->all());
 
         return redirect()->route('home');
     }

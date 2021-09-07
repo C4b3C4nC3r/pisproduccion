@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Plaga extends Model
 {
     use HasFactory;
+    protected $guarded = [ ];
+    public $timestamps = false;
+
 }

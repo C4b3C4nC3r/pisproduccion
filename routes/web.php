@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CultivoController;
 use App\Http\Controllers\PlagaController;
+use App\Http\Controllers\FabricanteController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CultivoPlagaProductoController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +34,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('cultivo', CultivoController::class);
 Route::resource('plaga', PlagaController::class);
+Route::resource('fabricante', FabricanteController::class);
+Route::resource('categoria', CategoriaController::class);
+Route::resource('productotecnico', ProductoController::class);
+Route::resource('cultivoplagaproducto', CultivoPlagaProductoController::class);
+
+

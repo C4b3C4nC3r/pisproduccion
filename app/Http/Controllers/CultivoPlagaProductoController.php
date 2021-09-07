@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductoTecnico;
+use App\Models\CultivoPlagaProducto;
 use Illuminate\Http\Request;
 
-class ProductoController extends Controller
+class CultivoPlagaProductoController extends Controller
 {
     public function store(Request $request)
     {
-        $productotecnicos=ProductoTecnico::create($request->all());
+        $cultivoplagaproducto=CultivoPlagaProducto::create($request->all());
 
         return redirect()->route('home');
     }
