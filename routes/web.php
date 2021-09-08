@@ -24,22 +24,16 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     $buscar = $request->buscar;
     $data = null;
-    $cultivoplagaproductos = CultivoPlagaProducto::with(['cultivos'=>function($query) use ($buscar)
-    {
-        //consulta interna
-        return $query->where('cultivos.name','LIKE','%'.$buscar.'%');
-    }])->with(['plagas'=>function($query) use ($buscar)
-    {
-        //consulta interna
-        return $query->where('plagas.name','LIKE','%'.$buscar.'%');
-    }])->with(['productostecnicos'=>function($query) use ($buscar)
-    {
-        //consulta interna
-        return $query->where('productotecnico.name','LIKE','%'.$buscar.'%')->orWhere('productotecnico.nametech','LIKE','%'.$buscar.'%');
-    }])->paginate(2);
-
-
-
+    $cultivoplagaproductos = CultivoPlagaProducto::whereHas('cultivos',function ($query) use($buscar)
+    { 
+        $query->where('cultivos.name', 'like', '%'.$buscar.'%');
+    })->whereHas('plagas',function ($consult) use($buscar)
+    { 
+        $consult->orWhere('plagas.name', 'like', '%'.$buscar.'%');
+    })->whereHas('productostecnicos',function ($busqueda) use($buscar)
+    { 
+        $busqueda->orWhere('productotecnico.name', 'like', '%'.$buscar.'%')->orWhere('productotecnico.nametech', 'like', '%'.$buscar.'%');
+    })->paginate(3);
 
     return view('welcome',compact('cultivoplagaproductos','data','buscar'));
 });
