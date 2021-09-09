@@ -15,7 +15,7 @@
                     <div class="accordion-body">
                         <form action="{{route('cultivo.store')}}" method="post">
                             @csrf
-                            <input class="form-control form-input" type="text" name="name" required>
+                            <input class="form-control form-input" placeholder="Ingrese el nombre" type="text" name="name" required>
                             <hr>
                             <button class="btn btn-primary" type="submit">Agregarlo</button>
                         </form>
@@ -33,7 +33,7 @@
                     <div class="accordion-body">
                         <form action="{{route('plaga.store')}}" method="post">
                             @csrf
-                            <input class="form-control form-input" type="text" name="name" required>
+                            <input class="form-control form-input" placeholder="Ingrese el nombre" type="text" name="name" required>
                             <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
@@ -51,7 +51,7 @@
                     <div class="accordion-body">
                         <form action="{{route('fabricante.store')}}" method="post">
                             @csrf
-                            <input class="form-control form-input" type="text" name="name" required>
+                            <input class="form-control form-input" placeholder="Ingrese el nombre" type="text" name="name" required>
                             <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
@@ -69,7 +69,7 @@
                     <div class="accordion-body">
                         <form action="{{route('categoria.store')}}" method="post">
                             @csrf
-                            <input class="form-control form-input" type="text" name="name" required>
+                            <input class="form-control form-input" placeholder="Ingrese el nombre" type="text" name="name" required>
                             <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
@@ -102,18 +102,18 @@
                                     @endforeach
                                 </select>
                             <hr>
-                            <input class="form-control form-input" type="text" name="name" required>
+                            <input class="form-control form-input"  placeholder="Ingrese el nombre" type="text" name="name" required>
                             
                             <hr>
-                            <input class="form-control form-input" type="text" name="nametech" required>
+                            <input class="form-control form-input" placeholder="Ingrese el nombre tecnico" type="text" name="nametech" required>
                             <hr>
-                            <input class="form-control form-input" type="text" name="mode_action" required>
+                            <input class="form-control form-input" placeholder="Ingrese el modo de action" type="text" name="mode_action" required>
                             <hr>
-                            <input class="form-control form-input" type="text" name="composicion" required>
+                            <input class="form-control form-input" placeholder="Ingrese su composicion" type="text" name="composicion" required>
                             <hr>
-                            <input class="form-control form-input" type="text" name="tiempoaplicacion" required>
+                            <input class="form-control form-input" placeholder="Ingrese el tiempo de aplicacion" type="text" name="tiempoaplicacion" required>
                             <hr>
-                            <input class="form-control form-input" type="text" name="lmr_ppm" required>
+                            <input class="form-control form-input" placeholder="Ingrese el lmr_ppm" type="text" name="lmr_ppm" required>
                             <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
@@ -152,7 +152,7 @@
                                 @endforeach
                             </select>
                             <hr>
-                            <textarea class="form-control" name="descripcion" id="" cols="30" rows="10"></textarea>
+                            <textarea class="form-control" name="descripcion" id="" cols="30" placeholder="Ingrese una breve descripcion" rows="10"></textarea>
                             <hr>
                             <button class="btn btn-primary"  type="submit">Agregarlo</button>
                         </form>
