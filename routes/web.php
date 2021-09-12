@@ -24,15 +24,9 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     $buscar = $request->buscar;
     $data = null;
-    $cultivoplagaproductos = CultivoPlagaProducto::whereHas('cultivos',function ($query) use($buscar)
-    { 
-        $query->where('cultivos.name', 'like', '%'.$buscar.'%');
-    })->whereHas('plagas',function ($consult) use($buscar)
-    { 
-        $consult->orWhere('plagas.name', 'like', '%'.$buscar.'%');
-    })->whereHas('productostecnicos',function ($busqueda) use($buscar)
-    { 
-        $busqueda->orWhere('productotecnico.name', 'like', '%'.$buscar.'%')->orWhere('productotecnico.nametech', 'like', '%'.$buscar.'%');
+    $cultivoplagaproductos = CultivoPlagaProducto::whereHas('cultivos',function ($query) use ($buscar)
+    {
+        $query->where('cultivos.name','LIKE','%'.$buscar.'%');
     })->paginate(3);
 
     return view('welcome',compact('cultivoplagaproductos','data','buscar'));

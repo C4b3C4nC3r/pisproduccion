@@ -38,7 +38,7 @@
 			</div>
 		<!-- end post -->
 		@endforeach
-
+		
 		{{$cultivoplagaproductos->appends(["buscar"=>$buscar])->links()}}
 
 	</div>

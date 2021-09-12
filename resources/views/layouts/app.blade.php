@@ -51,6 +51,32 @@
                             @endif
 
                         @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Revisar
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('cultivo.index')}}">
+                                    Revisar Cultivos
+                                </a>
+                                <a class="dropdown-item" href="{{route('plaga.index')}}">
+                                    Revisar Plagas
+                                </a>
+                                <a class="dropdown-item" href="{{route('fabricante.index')}}">
+                                    Revisar Fabricantes
+                                </a>
+                                <a class="dropdown-item" href="{{route('categoria.index')}}">
+                                    Revisar Categorias
+                                </a>
+                                <a class="dropdown-item" href="{{route('productotecnico.index')}}">
+                                    Revisar Productos
+                                </a>
+                                <a class="dropdown-item" href="{{route('cultivoplagaproducto.index')}}">
+                                    Revisar Publicaciones
+                                </a>
+                                
+                            </div>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
